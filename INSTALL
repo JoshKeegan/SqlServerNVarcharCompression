@@ -1,0 +1,19 @@
+SQL Server NVarchar Compression installation instructions.
+
+Get SqlServerNVarcharCompression.dll and install.sql and copy them to 
+your SQL Server.
+The .dll can be compiled from source yourself, or downloaded pre-compiled.
+
+Enable CLR integration on your SQL Server (if it isn't enabled already) with:
+	sp_configure 'clr enabled', 1
+	GO
+	RECONFIGURE
+	GO
+Note that this requires the ALTER SETTINGS server level permission.
+
+Open up Install.sql and edit @installDir to match the directory of the .dll
+on your SQL Server.
+
+Run Install.sql
+
+Installation Complete!
