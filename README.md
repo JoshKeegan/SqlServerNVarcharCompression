@@ -16,5 +16,21 @@ If it is ever used for production CRUD queries, please bear in mind the scaling 
 ## Installation ##
 Please follow the instructions in the INSTALL file for installation instructions.
 
+## Usage ##
+Once installed, scalar-valued functions for compression and decompression are added to the `master` database.  
+Usage is very straight forward, as this example shows:
+```sql
+/* Some text to compress */
+DECLARE @txt nvarchar(max) = 'Some test text';
+
+/* Compress it */
+DECLARE @compressed varbinary(max) = master.dbo.CompressNVarChar(@txt);
+
+/* Show the compressed binary, and also decompress it back to text again */
+SELECT 
+	@compressed AS compressed, 
+	master.dbo.DecompressNVarChar(@compressed) AS decompressed;
+```
+
 ## License ##
 MIT. Copy in LICENSE file
