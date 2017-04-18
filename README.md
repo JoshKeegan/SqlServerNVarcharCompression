@@ -1,5 +1,7 @@
 # SQL Server NVarchar Compression #
 An installable assembly for SQL Server that adds Deflate (the algorithm used by GZip) Compression functions for nvarchar values.  
+
+Download the latest release from the [Download page](https://github.com/JoshKeegan/SqlServerNVarcharCompression/releases).  
   
 Please note that where possible, it is wise to perform (de)compression in the application tier and just store or retrieve compressed binaries in the database.  
 Performing (de)compression in the database will use database server CPU cycles (and MS license SQL Server per core remember) for something that could easily be moved to the application tier, and using scalar-valued functions in queries can prevent them from going parallel.  
